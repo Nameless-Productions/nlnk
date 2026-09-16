@@ -31,4 +31,9 @@
 	{#if form?.id}
 		<p>Shortened: {`${window.location.protocol}//${window.location.host}/${form.id}`}</p>
 	{/if}
+
+	{#if form?.error}
+		<br />
+		<p>Error: {form.error}</p>
+	{/if}
 </div>
