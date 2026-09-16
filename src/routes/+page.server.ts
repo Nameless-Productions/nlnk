@@ -4,8 +4,9 @@ import { createShortenedURL } from '$lib/createShortenedURL';
 
 function isValidURL(url: string): boolean {
 	try {
-		new URL(url);
-		return true;
+		const parsed = new URL(url);
+		if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return true;
+		return false;
 	} catch {
 		return false;
 	}
