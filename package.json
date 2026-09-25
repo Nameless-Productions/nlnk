@@ -11,12 +11,12 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"contract:emit": "prisma contract emit"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
-		"@prisma/adapter-libsql": "^7.10.0",
-		"@prisma/client": "^7.10.0",
+		"@prisma/cli-engine": "0.4.0",
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/adapter-node": "^5.5.7",
 		"@sveltejs/kit": "^2.63.0",
@@ -40,5 +40,8 @@
 		"typescript": "^6.0.3",
 		"typescript-eslint": "^8.60.1",
 		"vite": "^8.0.16"
+	},
+	"dependencies": {
+		"@prisma/orm-postgres": "8.0.0-rc.11"
 	}
 }
