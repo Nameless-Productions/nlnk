@@ -1,0 +1,6 @@
+// use prisma-8
+
+model Links {
+  id String @id
+  link String
+}

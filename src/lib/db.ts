@@ -1,9 +1,9 @@
-import { PrismaLibSql } from '@prisma/adapter-libsql';
-import { PrismaClient } from './generated/prisma/client';
-import { env } from '$env/dynamic/private';
+import 'dotenv/config';
+import postgres from '@prisma/orm-postgres/runtime';
+import type { Contract } from './contract.d';
+import contractJson from './contract.json' with { type: 'json' };
 
-const adapter = new PrismaLibSql({
-	url: env.DATABASE_URL
+export const db = postgres<Contract>({
+	contractJson,
+	url: process.env['DATABASE_URL']!
 });
-
-export const db = new PrismaClient({ adapter });
