@@ -1,42 +1,38 @@
-# sv
+# Nameless Link
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Nameless Link. A dead simple, open source link shortener. No tracking, no logging, just a link.
 
-## Creating a project
+## Website
 
-If you're seeing this, you've probably already done this step. Congrats!
+You do not need to self host this. You can access it on [nlnk.link](https://nlnk.link/)
 
-```sh
-# create a new project
-npx sv create my-app
+## Self hosting
+
+You can run it in a Docker container:
+
+Clone the repo:
+
+```bash
+git clone https://github.com/Nameless-Productions/nlnk.git
 ```
 
-To recreate this project with the same configuration:
+In the repo add these to the .env file:
 
-```sh
-# recreate this project
-pnpm dlx sv@0.16.1 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:forms" --install pnpm ./
+```
+# The port for the app, defaults to 3000
+APP_PORT=8080
+
+# The user for the database
+DB_USER=nlnk
+
+# Password for the database
+DB_PASSWORD=changeme
 ```
 
-## Developing
+After that you can run by:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```bash
+docker compose up -d
 ```
 
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+And it should be live on the port you chose
