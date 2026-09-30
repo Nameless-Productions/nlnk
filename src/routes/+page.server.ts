@@ -1,6 +1,7 @@
 import { fail } from '@sveltejs/kit';
-import type { Actions } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import { createShortenedURL } from '$lib/createShortenedURL';
+import { env } from '$env/dynamic/private';
 
 function isValidURL(url: string): boolean {
 	try {
@@ -25,4 +26,8 @@ export const actions: Actions = {
 
 		return { id };
 	}
+};
+
+export const load: PageServerLoad = async () => {
+	return { reportEmail: env.REPORT_EMAIL };
 };
