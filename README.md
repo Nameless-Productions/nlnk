@@ -27,6 +27,9 @@ DB_USER=nlnk
 
 # Password for the database
 DB_PASSWORD=changeme
+
+# Report email, optional
+REPORT_EMAIL=report@nlnk.link
 ```
 
 After that you can run by:
