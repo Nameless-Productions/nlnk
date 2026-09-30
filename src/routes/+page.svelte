@@ -1,7 +1,7 @@
 <script>
 	import { enhance } from '$app/forms';
 
-	let { form } = $props();
+	let { form, data } = $props();
 </script>
 
 <div class="justify-center text-center">
@@ -35,5 +35,10 @@
 	{#if form?.error}
 		<br />
 		<p>Error: {form.error}</p>
+	{/if}
+
+	{#if data.reportEmail}
+		<br />
+		<p>Report email: <a href={`mailto:${data.reportEmail}`}>{data.reportEmail}</a></p>
 	{/if}
 </div>
