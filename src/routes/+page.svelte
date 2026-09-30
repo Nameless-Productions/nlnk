@@ -39,6 +39,10 @@
 
 	{#if data.reportEmail}
 		<br />
-		<p>Report email: <a href={`mailto:${data.reportEmail}`}>{data.reportEmail}</a></p>
+		<p>
+			Report email: <a class="text-blue-500 underline" href={`mailto:${data.reportEmail}`}
+				>{data.reportEmail}</a
+			>
+		</p>
 	{/if}
 </div>
