@@ -1,5 +1,7 @@
 # Nameless Link
 
+![Hackatime Badge](https://hackatime-badge.hackclub.com/U0BKW4UM866/nlnk)
+
 Nameless Link. A dead simple, open source link shortener. No tracking, no logging, just a link.
 
 ## Website
