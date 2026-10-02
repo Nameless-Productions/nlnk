@@ -2,6 +2,7 @@ import { fail } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { createShortenedURL } from '$lib/createShortenedURL';
 import { env } from '$env/dynamic/private';
+import { limiter } from '$lib/limiter';
 
 function isValidURL(url: string): boolean {
 	try {
@@ -14,8 +15,13 @@ function isValidURL(url: string): boolean {
 }
 
 export const actions: Actions = {
-	create: async ({ request }) => {
+	create: async (event) => {
+		const request = event.request;
 		const formData = await request.formData();
+
+		if (await limiter.isLimited(event)) {
+			return fail(429, { error: 'Rate limited' });
+		}
 
 		const url = formData.get('url') as string | undefined;
 		if (!url) return fail(400, { error: 'No URL' });
