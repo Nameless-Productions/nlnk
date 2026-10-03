@@ -11,6 +11,11 @@ services:
       PORT: 3000
       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/nlnk
       REPORT_EMAIL:
+    develop:
+      watch:
+        - path: ./src
+          action: sync+restart
+          target: /app/src
   db:
     image: postgres:17
     restart: unless-stopped
