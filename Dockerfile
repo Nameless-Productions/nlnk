@@ -10,8 +10,6 @@ COPY . .
 
 RUN pnpm prisma contract emit
 
-RUN pnpm build
-
 
 FROM node:24-slim AS runner
 WORKDIR /app
