@@ -30,6 +30,14 @@
 	</form>
 	{#if form?.id}
 		<p>Shortened: {`${window.location.protocol}//${window.location.host}/${form.id}`}</p>
+		<br />
+		<button
+			class="w-fit rounded-xl border border-white p-1"
+			onclick={() =>
+				navigator.clipboard.writeText(
+					`${window.location.protocol}//${window.location.host}/${form.id}`
+				)}>Copy</button
+		>
 	{/if}
 
 	{#if form?.error}
