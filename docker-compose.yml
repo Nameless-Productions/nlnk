@@ -14,7 +14,7 @@ services:
     develop:
       watch:
         - path: ./src
-          action: sync
+          action: sync+restart
           target: /app/src
   db:
     image: postgres:17
