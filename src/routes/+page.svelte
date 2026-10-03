@@ -30,7 +30,6 @@
 	</form>
 	{#if form?.id}
 		<p>Shortened: {`${window.location.protocol}//${window.location.host}/${form.id}`}</p>
-		<br />
 		<button
 			class="w-fit cursor-pointer rounded-xl border border-white p-1 duration-300 hover:bg-gray-700"
 			onclick={() =>
